@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free tip calculator. Calculate tip, total bill and amount per person.">
+  <title>Tip Calculator | Free Calculators</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main class="container calculator-page">
+    <a class="back" href="../index.html">← All calculators</a>
+    <section class="calculator">
+      <h1>Tip Calculator</h1>
+      <p class="intro">Calculate the tip, total bill and amount each person should pay.</p>
+      <div class="field">
+        <label for="bill">Bill amount</label>
+        <input id="bill" type="number" step="any" placeholder="e.g. 80">
+      </div>
+      <div class="field">
+        <label for="tip">Tip (%)</label>
+        <input id="tip" type="number" step="any" value="15">
+      </div>
+      <div class="field">
+        <label for="people">Number of people</label>
+        <input id="people" type="number" min="1" step="1" value="1">
+      </div>
+      <button onclick="calculate()">Calculate</button>
+      <div class="result" id="result"></div>
+      <div class="explanation">
+        <h2>How it works</h2>
+        <p>Enter the bill, choose a tip percentage and optionally split the total between several people.</p>
+      </div>
+    </section>
+  </main>
+  <script>
+    function calculate() {
+      const bill = parseFloat(document.getElementById('bill').value);
+      const tip = parseFloat(document.getElementById('tip').value);
+      const people = parseInt(document.getElementById('people').value, 10);
+      const result = document.getElementById('result');
+      if (isNaN(bill) || isNaN(tip) || isNaN(people) || people < 1) {
+        result.textContent = 'Please enter valid values.';
+        return;
+      }
+      const tipAmount = bill * tip / 100;
+      const total = bill + tipAmount;
+      result.innerHTML = `Tip: <strong>${format(tipAmount)}</strong><br>Total: <strong>${format(total)}</strong><br>Per person: <strong>${format(total / people)}</strong>`;
+    }
+    function format(n) {
+      return Number(n.toFixed(2));
+    }
+  </script>
+</body>
+</html>
