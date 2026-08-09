@@ -1,48 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Free percentage calculator. Calculate what a percentage of a number is.">
-  <title>Percentage Calculator | Free Calculators</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Percentage Calculator — Calculate Percentages Online</title>
+
+  <meta
+    name="description"
+    content="Use this free percentage calculator to quickly calculate percentages of any number. Simple, fast and accurate percentage calculations."
+  >
+
+  <meta name="robots" content="index, follow">
+
   <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
+
   <main class="container calculator-page">
-    <a class="back" href="../index.html">← All calculators</a>
-    <section class="calculator">
+
+    <a class="back" href="../index.html">
+      ← All calculators
+    </a>
+
+    <section class="panel">
+
       <h1>Percentage Calculator</h1>
-      <p class="intro">Calculate what a percentage of a number is.</p>
+
+      <p class="intro">
+        Calculate percentages quickly and easily. Find the percentage of any number with this free online percentage calculator.
+      </p>
+
       <div class="field">
         <label for="percent">Percentage</label>
-        <input id="percent" type="number" step="any" placeholder="e.g. 20">
+        <input
+          id="percent"
+          type="number"
+          step="any"
+          placeholder="e.g. 20"
+        >
       </div>
+
       <div class="field">
         <label for="number">Number</label>
-        <input id="number" type="number" step="any" placeholder="e.g. 150">
+        <input
+          id="number"
+          type="number"
+          step="any"
+          placeholder="e.g. 150"
+        >
       </div>
-      <button onclick="calculate()">Calculate</button>
+
+      <button onclick="calculate()">
+        Calculate Percentage
+      </button>
+
       <div class="result" id="result"></div>
+
       <div class="explanation">
-        <h2>How it works</h2>
-        <p>This calculator finds the value of a percentage of a number. For example, 20% of 150 is 30.</p>
+
+        <h2>How to calculate a percentage</h2>
+
+        <p>
+          To calculate a percentage of a number, multiply the number by the percentage and divide the result by 100.
+        </p>
+
+        <h2>Example</h2>
+
+        <p>
+          If you want to calculate 20% of 150, enter 20 as the percentage and 150 as the number. The result is 30.
+        </p>
+
+        <h2>What can you use this calculator for?</h2>
+
+        <p>
+          This percentage calculator can be used for everyday calculations, school work, business calculations, discounts, price changes and many other situations where you need to calculate a percentage quickly.
+        </p>
+
       </div>
+
     </section>
+
   </main>
+
   <script>
     function calculate() {
-      const p = parseFloat(document.getElementById('percent').value);
-      const n = parseFloat(document.getElementById('number').value);
-      const result = document.getElementById('result');
+      const p = parseFloat(document.getElementById("percent").value);
+      const n = parseFloat(document.getElementById("number").value);
+      const result = document.getElementById("result");
+
       if (isNaN(p) || isNaN(n)) {
-        result.textContent = 'Please enter both numbers.';
+        result.textContent = "Please enter both numbers.";
         return;
       }
-      result.textContent = `${p}% of ${n} = ${format(p * n / 100)}`;
+
+      const answer = p * n / 100;
+
+      result.textContent =
+        `${p}% of ${n} = ${formatNumber(answer)}`;
     }
-    function format(n) {
-      return Number.isInteger(n) ? n : Number(n.toFixed(8));
+
+    function formatNumber(number) {
+      return Number.isInteger(number)
+        ? number
+        : Number(number.toFixed(8));
     }
   </script>
+
 </body>
 </html>
