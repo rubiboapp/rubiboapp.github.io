@@ -1,50 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Free discount calculator. Calculate sale price and money saved.">
-  <title>Discount Calculator | Free Calculators</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Discount Calculator — Calculate Sale Prices Online</title>
+
+  <meta
+    name="description"
+    content="Calculate discounts, sale prices and money saved with this free online discount calculator. Quickly find the final price after a percentage discount."
+  >
+
+  <meta name="robots" content="index, follow">
+
   <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
+
   <main class="container calculator-page">
-    <a class="back" href="../index.html">← All calculators</a>
-    <section class="calculator">
+
+    <a class="back" href="../index.html">
+      ← All calculators
+    </a>
+
+    <section class="panel">
+
       <h1>Discount Calculator</h1>
-      <p class="intro">Calculate the final price after a discount and see how much you save.</p>
+
+      <p class="intro">
+        Calculate the final price after a discount and see exactly how much money you save.
+      </p>
+
       <div class="field">
         <label for="price">Original price</label>
-        <input id="price" type="number" step="any" placeholder="e.g. 100">
+        <input
+          id="price"
+          type="number"
+          step="any"
+          placeholder="e.g. 100"
+        >
       </div>
+
       <div class="field">
         <label for="discount">Discount (%)</label>
-        <input id="discount" type="number" step="any" placeholder="e.g. 20">
+        <input
+          id="discount"
+          type="number"
+          step="any"
+          placeholder="e.g. 20"
+        >
       </div>
-      <button onclick="calculate()">Calculate</button>
+
+      <button onclick="calculate()">
+        Calculate Discount
+      </button>
+
       <div class="result" id="result"></div>
+
       <div class="explanation">
-        <h2>How it works</h2>
-        <p>Enter the original price and discount percentage. The calculator shows both the amount saved and the final price.</p>
+
+        <h2>How to calculate a discount</h2>
+
+        <p>
+          To calculate the amount saved, multiply the original price by the discount percentage and divide by 100. Subtract that amount from the original price to get the final sale price.
+        </p>
+
+        <h2>Example</h2>
+
+        <p>
+          If an item costs $100 and has a 20% discount, you save $20 and the final price is $80.
+        </p>
+
+        <h2>When to use a discount calculator</h2>
+
+        <p>
+          Use this calculator when shopping online or in stores, comparing sale prices, checking promotions or working out how much money you will save during a sale.
+        </p>
+
       </div>
+
     </section>
+
   </main>
+
   <script>
     function calculate() {
-      const price = parseFloat(document.getElementById('price').value);
-      const discount = parseFloat(document.getElementById('discount').value);
-      const result = document.getElementById('result');
+      const price = parseFloat(document.getElementById("price").value);
+      const discount = parseFloat(document.getElementById("discount").value);
+      const result = document.getElementById("result");
+
       if (isNaN(price) || isNaN(discount)) {
-        result.textContent = 'Please enter both values.';
+        result.textContent = "Please enter both values.";
         return;
       }
+
       const saved = price * discount / 100;
       const finalPrice = price - saved;
-      result.innerHTML = `You save <strong>${format(saved)}</strong>. Final price: <strong>${format(finalPrice)}</strong>.`;
+
+      result.innerHTML =
+        `You save <strong>${formatNumber(saved)}</strong>.<br>
+         Final price: <strong>${formatNumber(finalPrice)}</strong>`;
     }
-    function format(n) {
-      return Number.isInteger(n) ? n : Number(n.toFixed(2));
+
+    function formatNumber(number) {
+      return Number(number.toFixed(2));
     }
   </script>
+
 </body>
 </html>
