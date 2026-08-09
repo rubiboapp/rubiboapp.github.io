@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Calculate the tip, total bill and amount each person should pay."><title>Tip Calculator | Free Calculators</title><link rel="stylesheet" href="../style.css"></head>
+<body><main class="container calculator-page"><a class="back" href="../index.html">← All calculators</a>
+<section class="panel"><h1>Tip Calculator</h1><p class="intro">Calculate the tip, total bill and amount each person should pay.</p><div class="field"><label for="bill">Bill amount</label><input id="bill" type="number" step="any" placeholder="e.g. 80"></div>
+<div class="field"><label for="tip">Tip (%)</label><input id="tip" type="number" step="any" value="15"></div>
+<div class="field"><label for="people">Number of people</label><input id="people" type="number" min="1" step="1" value="1"></div>
+<button onclick="calculate()">Calculate</button><div class="result" id="result"></div>
+<div class="explanation"><h2>About this calculator</h2><p>Calculate the tip, total bill and amount each person should pay. Enter the values above and get your result instantly. Everything runs directly in your browser.</p></div>
+</section></main><script>function calculate(){const b=parseFloat(bill.value),t=parseFloat(tip.value),p=parseInt(people.value,10);if(isNaN(b)||isNaN(t)||isNaN(p)||p<1){result.textContent='Please enter valid values.';return}const x=b*t/100,total=b+x;result.innerHTML=`Tip: <strong>${fmt(x)}</strong><br>Total: <strong>${fmt(total)}</strong><br>Per person: <strong>${fmt(total/p)}</strong>`}function fmt(n){return Number(n.toFixed(2))}</script></body></html>

@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Calculate your age in years, months and days."><title>Age Calculator | Free Calculators</title><link rel="stylesheet" href="../style.css"></head>
+<body><main class="container calculator-page"><a class="back" href="../index.html">← All calculators</a>
+<section class="panel"><h1>Age Calculator</h1><p class="intro">Calculate your age in years, months and days.</p><div class="field"><label for="birth">Date of birth</label><input id="birth" type="date"></div>
+<button onclick="calculate()">Calculate Age</button><div class="result" id="result"></div>
+<div class="explanation"><h2>About this calculator</h2><p>Calculate your age in years, months and days. Enter the values above and get your result instantly. Everything runs directly in your browser.</p></div>
+</section></main><script>function calculate(){const v=birth.value;if(!v){result.textContent='Please select your date of birth.';return}const b=new Date(v+'T00:00:00'),t=new Date();t.setHours(0,0,0,0);if(b>t){result.textContent='Date of birth cannot be in the future.';return}let y=t.getFullYear()-b.getFullYear(),m=t.getMonth()-b.getMonth(),d=t.getDate()-b.getDate();if(d<0){m--;d+=new Date(t.getFullYear(),t.getMonth(),0).getDate()}if(m<0){y--;m+=12}result.textContent=`You are ${y} years, ${m} months and ${d} days old.`}</script></body></html>

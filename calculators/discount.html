@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Calculate the final price after a discount and see how much you save."><title>Discount Calculator | Free Calculators</title><link rel="stylesheet" href="../style.css"></head>
+<body><main class="container calculator-page"><a class="back" href="../index.html">← All calculators</a>
+<section class="panel"><h1>Discount Calculator</h1><p class="intro">Calculate the final price after a discount and see how much you save.</p><div class="field"><label for="price">Original price</label><input id="price" type="number" step="any" placeholder="e.g. 100"></div>
+<div class="field"><label for="discount">Discount (%)</label><input id="discount" type="number" step="any" placeholder="e.g. 20"></div>
+<button onclick="calculate()">Calculate</button><div class="result" id="result"></div>
+<div class="explanation"><h2>About this calculator</h2><p>Calculate the final price after a discount and see how much you save. Enter the values above and get your result instantly. Everything runs directly in your browser.</p></div>
+</section></main><script>function calculate(){const p=parseFloat(price.value),d=parseFloat(discount.value);if(isNaN(p)||isNaN(d)){result.textContent='Please enter both values.';return}const s=p*d/100;result.innerHTML=`You save <strong>${fmt(s)}</strong>.<br>Final price: <strong>${fmt(p-s)}</strong>`}function fmt(n){return Number(n.toFixed(2))}</script></body></html>

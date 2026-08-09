@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Calculate the number of days between two dates."><title>Date Calculator | Free Calculators</title><link rel="stylesheet" href="../style.css"></head>
+<body><main class="container calculator-page"><a class="back" href="../index.html">← All calculators</a>
+<section class="panel"><h1>Date Calculator</h1><p class="intro">Calculate the number of days between two dates.</p><div class="field"><label for="start">Start date</label><input id="start" type="date"></div>
+<div class="field"><label for="end">End date</label><input id="end" type="date"></div>
+<button onclick="calculate()">Calculate</button><div class="result" id="result"></div>
+<div class="explanation"><h2>About this calculator</h2><p>Calculate the number of days between two dates. Enter the values above and get your result instantly. Everything runs directly in your browser.</p></div>
+</section></main><script>function calculate(){if(!start.value||!end.value){result.textContent='Please select both dates.';return}const a=new Date(start.value+'T00:00:00'),b=new Date(end.value+'T00:00:00'),d=Math.round(Math.abs(b-a)/86400000);result.textContent=`${d} day${d===1?'':'s'} between the selected dates.`}</script></body></html>

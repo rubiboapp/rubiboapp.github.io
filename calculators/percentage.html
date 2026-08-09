@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Calculate what a percentage of a number is."><title>Percentage Calculator | Free Calculators</title><link rel="stylesheet" href="../style.css"></head>
+<body><main class="container calculator-page"><a class="back" href="../index.html">← All calculators</a>
+<section class="panel"><h1>Percentage Calculator</h1><p class="intro">Calculate what a percentage of a number is.</p><div class="field"><label for="percent">Percentage</label><input id="percent" type="number" step="any" placeholder="e.g. 20"></div>
+<div class="field"><label for="number">Number</label><input id="number" type="number" step="any" placeholder="e.g. 150"></div>
+<button onclick="calculate()">Calculate</button><div class="result" id="result"></div>
+<div class="explanation"><h2>About this calculator</h2><p>Calculate what a percentage of a number is. Enter the values above and get your result instantly. Everything runs directly in your browser.</p></div>
+</section></main><script>function calculate(){const p=parseFloat(percent.value),n=parseFloat(number.value);if(isNaN(p)||isNaN(n)){result.textContent='Please enter both numbers.';return}result.textContent=`${p}% of ${n} = ${fmt(p*n/100)}`}function fmt(n){return Number.isInteger(n)?n:Number(n.toFixed(8))}</script></body></html>
