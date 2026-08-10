@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Board Foot Calculator — Calculate Lumber Board Feet</title>
+
+  <meta
+    name="description"
+    content="Free board foot calculator for lumber and woodworking. Calculate board feet from thickness, width and length and estimate the total cost of your lumber."
+  >
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+  <main class="container calculator-page">
+
+    <a class="back" href="../index.html">
+      ← All calculators
+    </a>
+
+    <section class="panel">
+
+      <h1>Board Foot Calculator</h1>
+
+      <p class="intro">
+        Calculate board feet for lumber using thickness, width and length. You can also estimate the total cost of your wood.
+      </p>
+
+      <div class="field">
+        <label for="thickness">Thickness (inches)</label>
+        <input
+          id="thickness"
+          type="number"
+          min="0"
+          step="any"
+          placeholder="e.g. 2"
+        >
+      </div>
+
+      <div class="field">
+        <label for="width">Width (inches)</label>
+        <input
+          id="width"
+          type="number"
+          min="0"
+          step="any"
+          placeholder="e.g. 8"
+        >
+      </div>
+
+      <div class="field">
+        <label for="length">Length (feet)</label>
+        <input
+          id="length"
+          type="number"
+          min="0"
+          step="any"
+          placeholder="e.g. 10"
+        >
+      </div>
+
+      <div class="field">
+        <label for="quantity">Number of boards</label>
+        <input
+          id="quantity"
+          type="number"
+          min="1"
+          step="1"
+          value="1"
+        >
+      </div>
+
+      <div class="field">
+        <label for="price">Price per board foot (optional)</label>
+        <input
+          id="price"
+          type="number"
+          min="0"
+          step="any"
+          placeholder="e.g. 8.50"
+        >
+      </div>
+
+      <button onclick="calculate()">
+        Calculate Board Feet
+      </button>
+
+      <div class="result" id="result"></div>
+
+      <div class="explanation">
+
+        <h2>What is a board foot?</h2>
+
+        <p>
+          A board foot is a standard unit used to measure the volume of lumber. One board foot is equal to a board that is 1 inch thick, 12 inches wide and 1 foot long.
+        </p>
+
+        <h2>How to calculate board feet</h2>
+
+        <p>
+          To calculate board feet, multiply the thickness in inches by the width in inches and the length in feet, then divide the result by 12.
+        </p>
+
+        <h2>Why use a board foot calculator?</h2>
+
+        <p>
+          A board foot calculator can help woodworkers, carpenters and lumber buyers estimate how much wood they need and how much their lumber will cost.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+    function calculate() {
+      const thickness =
+        parseFloat(document.getElementById("thickness").value);
+
+      const width =
+        parseFloat(document.getElementById("width").value);
+
+      const length =
+        parseFloat(document.getElementById("length").value);
+
+      const quantity =
+        parseInt(document.getElementById("quantity").value, 10);
+
+      const price =
+        parseFloat(document.getElementById("price").value);
+
+      const result =
+        document.getElementById("result");
+
+      if (
+        isNaN(thickness) ||
+        isNaN(width) ||
+        isNaN(length) ||
+        isNaN(quantity) ||
+        thickness <= 0 ||
+        width <= 0 ||
+        length <= 0 ||
+        quantity < 1
+      ) {
+        result.textContent = "Please enter valid values.";
+        return;
+      }
+
+      const boardFeetEach =
+        (thickness * width * length) / 12;
+
+      const totalBoardFeet =
+        boardFeetEach * quantity;
+
+      let output =
+        `<strong>${format(totalBoardFeet)} board feet</strong><br>
+         ${format(boardFeetEach)} board feet per board`;
+
+      if (!isNaN(price) && price >= 0) {
+        const totalCost =
+          totalBoardFeet * price;
+
+        output +=
+          `<br><br>
+           Estimated lumber cost:
+           <strong>$${format(totalCost)}</strong>`;
+      }
+
+      result.innerHTML = output;
+    }
+
+    function format(number) {
+      return Number(number.toFixed(2));
+    }
+  </script>
+
+</body>
+</html>
