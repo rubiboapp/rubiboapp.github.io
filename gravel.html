@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Gravel Calculator — Calculate How Much Gravel You Need</title>
+
+  <meta
+    name="description"
+    content="Free gravel calculator to estimate how much gravel, crushed stone or aggregate you need for a driveway, patio, walkway or landscaping project."
+  >
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+  <main class="container calculator-page">
+
+    <a class="back" href="../index.html">
+      ← All calculators
+    </a>
+
+    <section class="panel">
+
+      <h1>Gravel Calculator</h1>
+
+      <p class="intro">
+        Calculate how much gravel you need for your driveway, patio, walkway or landscaping project.
+      </p>
+
+      <div class="field">
+        <label for="length">Length</label>
+        <input
+          id="length"
+          type="number"
+          min="0"
+          step="any"
+          placeholder="e.g. 30"
+        >
+      </div>
+
+      <div class="field">
+        <label for="width">Width</label>
+        <input
+          id="width"
+          type="number"
+          min="0"
+          step="any"
+          placeholder="e.g. 12"
+        >
+      </div>
+
+      <div class="field">
+        <label for="depth">Gravel depth</label>
+        <input
+          id="depth"
+          type="number"
+          min="0"
+          step="any"
+          placeholder="e.g. 4"
+        >
+      </div>
+
+      <div class="field">
+        <label for="unit">Measurement unit</label>
+        <select id="unit">
+          <option value="ft">Feet / inches</option>
+          <option value="m">Meters / centimeters</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="waste">Extra for waste (%)</label>
+        <input
+          id="waste"
+          type="number"
+          min="0"
+          step="any"
+          value="10"
+        >
+      </div>
+
+      <button onclick="calculate()">
+        Calculate Gravel
+      </button>
+
+      <div class="result" id="result"></div>
+
+      <div class="explanation">
+
+        <h2>How much gravel do I need?</h2>
+
+        <p>
+          To estimate the amount of gravel required, calculate the area of your project and multiply it by the desired gravel depth.
+        </p>
+
+        <p>
+          This gravel calculator adds an optional waste allowance so you can account for compaction, uneven ground and material loss during installation.
+        </p>
+
+        <h2>Gravel calculator formula</h2>
+
+        <p>
+          The basic calculation is length × width × depth. The result gives you the approximate volume of gravel required.
+        </p>
+
+        <h2>Common gravel projects</h2>
+
+        <p>
+          You can use this calculator for driveways, walkways, patios, garden paths, landscaping areas and other projects that require a layer of gravel or aggregate.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+    function calculate() {
+      const length = parseFloat(document.getElementById("length").value);
+      const width = parseFloat(document.getElementById("width").value);
+      const depth = parseFloat(document.getElementById("depth").value);
+      const unit = document.getElementById("unit").value;
+      const waste = parseFloat(document.getElementById("waste").value);
+
+      const result = document.getElementById("result");
+
+      if (
+        isNaN(length) ||
+        isNaN(width) ||
+        isNaN(depth) ||
+        isNaN(waste) ||
+        length <= 0 ||
+        width <= 0 ||
+        depth <= 0 ||
+        waste < 0
+      ) {
+        result.textContent = "Please enter valid values.";
+        return;
+      }
+
+      let volume;
+
+      if (unit === "ft") {
+        // Convert depth from inches to feet.
+        const depthFeet = depth / 12;
+
+        volume = length * width * depthFeet;
+
+        const cubicYards = volume / 27;
+        const cubicFeetWithWaste =
+          volume * (1 + waste / 100);
+
+        const cubicYardsWithWaste =
+          cubicFeetWithWaste / 27;
+
+        result.innerHTML =
+          `<strong>${format(cubicYardsWithWaste)} cubic yards</strong><br>
+           ${format(cubicFeetWithWaste)} cubic feet of gravel`;
+
+      } else {
+        // Depth entered in centimeters.
+        const depthMeters = depth / 100;
+
+        volume = length * width * depthMeters;
+
+        const cubicMetersWithWaste =
+          volume * (1 + waste / 100);
+
+        result.innerHTML =
+          `<strong>${format(cubicMetersWithWaste)} cubic meters</strong><br>
+           ${format(cubicMetersWithWaste * 1000)} liters of gravel`;
+      }
+    }
+
+    function format(number) {
+      return Number(number.toFixed(2));
+    }
+  </script>
+
+</body>
+</html>
