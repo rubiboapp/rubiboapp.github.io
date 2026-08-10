@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Fence Calculator — Estimate Fence Posts and Materials</title>
+
+  <meta
+    name="description"
+    content="Free fence calculator to estimate fence posts, sections and total fence length. Calculate the number of posts needed for your fencing project."
+  >
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+  <main class="container calculator-page">
+
+    <a class="back" href="../index.html">
+      ← All calculators
+    </a>
+
+    <section class="panel">
+
+      <h1>Fence Calculator</h1>
+
+      <p class="intro">
+        Estimate how many fence posts and sections you need for your fencing project.
+      </p>
+
+      <div class="field">
+        <label for="length">Total fence length (feet)</label>
+        <input
+          id="length"
+          type="number"
+          min="0"
+          step="any"
+          placeholder="e.g. 100"
+        >
+      </div>
+
+      <div class="field">
+        <label for="spacing">Post spacing (feet)</label>
+        <input
+          id="spacing"
+          type="number"
+          min="0"
+          step="any"
+          value="8"
+        >
+      </div>
+
+      <div class="field">
+        <label for="gates">Number of gates</label>
+        <input
+          id="gates"
+          type="number"
+          min="0"
+          step="1"
+          value="0"
+        >
+      </div>
+
+      <button onclick="calculate()">
+        Calculate Fence
+      </button>
+
+      <div class="result" id="result"></div>
+
+      <div class="explanation">
+
+        <h2>How many fence posts do I need?</h2>
+
+        <p>
+          Enter the total length of your fence and the desired spacing between posts. The calculator estimates the number of fence sections and posts required.
+        </p>
+
+        <h2>Fence post spacing</h2>
+
+        <p>
+          The correct spacing depends on the type of fence, the materials used and local building requirements. Eight feet is commonly used as a starting point for many fencing projects, but you should check the requirements for your specific fence.
+        </p>
+
+        <h2>What else should I consider?</h2>
+
+        <p>
+          When planning a fence, remember to account for gates, corners, changes in direction and the actual dimensions of your fence panels or sections.
+        </p>
+
+        <p>
+          This calculator provides an estimate and should be used as a planning tool rather than a substitute for local building requirements or manufacturer instructions.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+    function calculate() {
+      const length =
+        parseFloat(document.getElementById("length").value);
+
+      const spacing =
+        parseFloat(document.getElementById("spacing").value);
+
+      const gates =
+        parseInt(document.getElementById("gates").value, 10);
+
+      const result =
+        document.getElementById("result");
+
+      if (
+        isNaN(length) ||
+        isNaN(spacing) ||
+        isNaN(gates) ||
+        length <= 0 ||
+        spacing <= 0 ||
+        gates < 0
+      ) {
+        result.textContent = "Please enter valid values.";
+        return;
+      }
+
+      const sections =
+        Math.ceil(length / spacing);
+
+      /*
+       * A simple straight fence has one more post
+       * than the number of sections.
+       *
+       * Gates require two additional posts each.
+       */
+      const posts =
+        sections + 1 + (gates * 2);
+
+      const actualSpacing =
+        length / sections;
+
+      result.innerHTML =
+        `<strong>${posts} fence posts</strong><br>
+         ${sections} fence sections<br>
+         Average spacing: <strong>${format(actualSpacing)} ft</strong>`;
+    }
+
+    function format(number) {
+      return Number(number.toFixed(2));
+    }
+  </script>
+
+</body>
+</html>
