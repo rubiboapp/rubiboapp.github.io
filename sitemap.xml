@@ -1,40 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://rubiboapp.github.io/</loc>
-  </url>
-
-  <url>
-    <loc>https://rubiboapp.github.io/calculators/percentage.html</loc>
-  </url>
-
-  <url>
-    <loc>https://rubiboapp.github.io/calculators/discount.html</loc>
-  </url>
-
-  <url>
-    <loc>https://rubiboapp.github.io/calculators/tip.html</loc>
-  </url>
-
-  <url>
-    <loc>https://rubiboapp.github.io/calculators/age.html</loc>
-  </url>
-
-  <url>
-    <loc>https://rubiboapp.github.io/calculators/date.html</loc>
-  </url>
-
-  <url>
-    <loc>https://rubiboapp.github.io/calculators/gravel.html</loc>
-  </url>
-
-  <url>
-    <loc>https://rubiboapp.github.io/calculators/board-foot.html</loc>
-  </url>
-
-  <url>
-    <loc>https://rubiboapp.github.io/calculators/fence.html</loc>
-  </url>
-
+<url><loc>https://rubiboapp.github.io/</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/percentage-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/fraction-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/ratio-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/average-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/random-number-generator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/percentage-change-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/discount-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/vat-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/compound-interest-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/loan-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/mortgage-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/salary-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/simple-interest-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/tip-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/unit-price-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/fuel-cost-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/speed-distance-time-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/age-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/date-difference-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/add-days-to-date-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/business-days-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/countdown-days-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/bmi-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/calorie-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/area-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/volume-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/concrete-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/paint-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/fence-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/gravel-calculator.html</loc></url>
+<url><loc>https://rubiboapp.github.io/calculators/board-foot-calculator.html</loc></url>
 </urlset>
